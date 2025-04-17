@@ -1,0 +1,85 @@
+/* Styles pour les placeholders d'images */
+.placeholder {
+    position: relative;
+    background: linear-gradient(45deg, var(--primary-color), #600000);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    font-size: 1.2rem;
+    overflow: hidden;
+}
+
+.placeholder::before {
+    content: '\f0c8';  /* Icône carrée Font Awesome */
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    font-size: 2rem;
+    color: rgba(255, 255, 255, 0.2);
+    position: absolute;
+}
+
+/* Styles spécifiques pour différents types de placeholders */
+.placeholder-hero {
+    height: 300px;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+                linear-gradient(45deg, var(--primary-color), #600000);
+}
+
+.placeholder-hero::after {
+    content: '道場';  /* "Dojo" en caractères japonais */
+    font-size: 4rem;
+    color: var(--secondary-color);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.placeholder-gallery {
+    height: 200px;
+    background: linear-gradient(45deg, var(--primary-color), #600000);
+}
+
+.placeholder-gallery::after {
+    content: '功夫';  /* "Kung Fu" en caractères chinois */
+    font-size: 2rem;
+    color: var(--secondary-color);
+}
+
+.placeholder-product {
+    height: 200px;
+    background: linear-gradient(45deg, #4a4a4a, #2a2a2a);
+}
+
+.placeholder-product::after {
+    content: '\f6de';  /* Icône d'arts martiaux Font Awesome */
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    font-size: 3rem;
+    color: var(--secondary-color);
+}
+
+/* Animation de pulsation pour les placeholders */
+@keyframes pulse {
+    0% { opacity: 0.8; }
+    50% { opacity: 1; }
+    100% { opacity: 0.8; }
+}
+
+.placeholder::after {
+    animation: pulse 2s infinite ease-in-out;
+}
+
+/* Styles responsifs */
+@media (max-width: 768px) {
+    .placeholder-hero {
+        height: 200px;
+    }
+    
+    .placeholder-hero::after {
+        font-size: 3rem;
+    }
+    
+    .placeholder-gallery,
+    .placeholder-product {
+        height: 150px;
+    }
+} 

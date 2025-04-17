@@ -1,0 +1,52 @@
+Options -Indexes
+DirectoryIndex index.php
+
+<Files "includes/*">
+    Order allow,deny
+    Deny from all
+</Files>
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /kungfu/
+    
+    # Permettre l'accès direct à tous les fichiers PHP à la racine (hors includes/)
+    RewriteRule ^([a-zA-Z0-9_-]+)\.php$ - [L]
+    
+    # Empêcher l'accès direct aux fichiers .php dans includes/
+    RewriteRule ^includes/ - [F,L]
+    
+    # Permettre l'accès aux assets
+    RewriteRule ^(assets|templates)/ - [L]
+    
+    # Ne pas rediriger les fichiers qui existent
+    RewriteCond %{REQUEST_FILENAME} -f [OR]
+    RewriteCond %{REQUEST_FILENAME} -d
+    RewriteRule ^ - [L]
+    
+    # Gérer les erreurs 404 pour les fichiers qui n'existent pas
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^ error.php [L]
+</IfModule>
+
+# PHP configuration
+<IfModule mod_php.c>
+    php_value display_errors 1
+    php_value display_startup_errors 1
+    php_value error_reporting E_ALL
+</IfModule>
+
+# Définir l'encodage par défaut
+AddDefaultCharset UTF-8
+
+# Protection des fichiers sensibles
+<FilesMatch "^\.">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+<FilesMatch "^(config\.php|README\.md|composer\.json|package\.json)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch> 

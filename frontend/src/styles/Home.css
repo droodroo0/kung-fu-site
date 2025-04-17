@@ -1,0 +1,226 @@
+.home {
+  min-height: 100vh;
+}
+
+.hero-section {
+  position: relative;
+  text-align: center;
+  padding: 120px 20px;
+  background-color: var(--accent-color);
+  color: white;
+  margin-bottom: 60px;
+}
+
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0.1;
+  pointer-events: none;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.cta-button {
+  padding: 15px 30px;
+  font-size: 1.1em;
+  text-decoration: none;
+  border-radius: 0;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-button:not(.secondary) {
+  background-color: var(--dragon-red);
+  color: white;
+  border: 2px solid var(--dragon-red);
+}
+
+.cta-button.secondary {
+  background-color: transparent;
+  color: var(--dragon-gold);
+  border: 2px solid var(--dragon-gold);
+}
+
+.cta-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  padding: 40px 0;
+}
+
+.feature-card {
+  background: white;
+  padding: 30px;
+  border-radius: 8px;
+  text-align: center;
+  transition: transform 0.3s ease;
+  border: 1px solid var(--dragon-gold);
+}
+
+.feature-card i {
+  font-size: 2.5em;
+  color: var(--dragon-red);
+  margin-bottom: 20px;
+}
+
+.programs-section,
+.masters-section,
+.schedule-section {
+  margin: 60px 0;
+}
+
+.programs-grid,
+.masters-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.program-card,
+.master-card {
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.program-card:hover,
+.master-card:hover {
+  transform: translateY(-5px);
+}
+
+.program-card img,
+.master-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.program-card h3,
+.master-card h3 {
+  color: var(--dragon-red);
+  margin: 20px;
+  font-family: 'Cinzel', serif;
+}
+
+.program-card p,
+.master-card p {
+  margin: 0 20px 20px;
+  color: var(--text-color);
+}
+
+.price {
+  display: block;
+  margin: 20px;
+  color: var(--dragon-gold);
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+.schedule-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.schedule-card {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid var(--dragon-gold);
+}
+
+.schedule-card h3 {
+  color: var(--dragon-red);
+  margin-bottom: 15px;
+  font-family: 'Cinzel', serif;
+  text-align: center;
+}
+
+.schedule-card ul {
+  list-style: none;
+  padding: 0;
+}
+
+.schedule-card li {
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.schedule-card li:last-child {
+  border-bottom: none;
+}
+
+h2 {
+  color: var(--dragon-red);
+  text-align: center;
+  font-family: 'Cinzel', serif;
+  font-size: 2em;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.specialty {
+  color: var(--dragon-gold);
+  font-style: italic;
+}
+
+.program-image-placeholder,
+.master-image-placeholder {
+  width: 100%;
+  height: 200px;
+  background: linear-gradient(45deg, var(--dragon-red), var(--dragon-gold));
+  position: relative;
+  overflow: hidden;
+}
+
+.program-image-placeholder::before,
+.master-image-placeholder::before {
+  content: '\f6e1';  /* Code de l'icône dragon de Font Awesome */
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+  font-size: 4em;
+  color: rgba(255, 255, 255, 0.2);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    padding: 80px 20px;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cta-button {
+    width: 100%;
+    max-width: 300px;
+    text-align: center;
+  }
+} 
